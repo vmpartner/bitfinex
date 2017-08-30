@@ -2,17 +2,15 @@ package main
 
 import (
 	"fmt"
-	"gitlab.com/vitams/trade/bitfinex/lib/ws"
-	//	"encoding/json"
-	//	"gitlab.com/vitams/trade/bitfinex/lib/tools"
-	// "reflect"
 	"encoding/json"
+	"gitlab.com/vitams/trade/bitfinex/src"
 )
 
 func main() {
 
 	// Init
-	var s ws.Core
+	var b src.Bitfinex
+	var s src.WebSocket
 
 	// Connect & Reconnect
 	URL := "wss://api.bitfinex.com/ws/2"
@@ -27,6 +25,11 @@ func main() {
 	// Send
 	s.SendMessage(msg)
 
+	// Auth
+	auth := b.GetAuth()
+	fmt.Println(auth)
+	s.SendMessage(auth)
+
 	type Tick struct {
 		bid float64
 	}
@@ -34,13 +37,13 @@ func main() {
 	for {
 		var m map[string]interface{}
 		msg := s.ReadMessage()
-		fmt.Println(string(msg))
 		json.Unmarshal(msg, &m)
 		if value, ok := m["event"]; ok {
 			switch value {
 			case "subscribed":
-				fmt.Println(m)
+			case "info":
 			}
 		}
+		fmt.Println(string(msg))
 	}
 }

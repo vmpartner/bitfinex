@@ -1,4 +1,4 @@
-package tools
+package src
 
 func CheckErr(err error) {
 	if err != nil {
