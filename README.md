@@ -1,2 +1,2 @@
-# bitfinex
-Trade bot for bitfinex on Go
+# Bitfinex Trade Bot
+Trade bot written on Go for Bitfinex trade platform
