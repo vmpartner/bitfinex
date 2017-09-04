@@ -1,0 +1,11 @@
+package config
+
+const (
+	APIKey = "kSoDKwmfpgGZsdPncat5m3uUsiOKDs8PEYdf1K8sKk"
+	APISecret = "xJNoXTtZWBidGt3ZesD6Aa1E23M9Wi0zEckyu8hSacdL"
+	DBLogin = "root"
+	DBPassword = "123456"
+	DBHost = "127.0.0.1"
+	DBPort = "3306"
+	DBName = "trade"
+)

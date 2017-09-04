@@ -7,8 +7,10 @@ import (
 )
 
 type Bitfinex struct {
-	APIKey    string
-	APISecret string
+	APIKey          string
+	APISecret       string
+	TickerChannelId float64
+	Channels map[int]Channel
 }
 
 func (b *Bitfinex) GetAuth() (map[string]interface{}) {
